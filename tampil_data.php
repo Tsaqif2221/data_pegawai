@@ -1,4 +1,12 @@
 <?php
+session_start();
+if (!isset($_SESSION['level'])) {
+    header('location: index.php');
+    exit;
+}
+?>
+
+<?php
 include('config.php');
 
 $no = 1;
@@ -24,16 +32,27 @@ $hasil = mysqli_query($konek, $tampil);
     <title>Data Pegawai</title>
   </head>
   <body>
+  <div class="pos-f-t">
+  <div class="collapse" id="navbarToggleExternalContent">
+    <div class="bg-dark p-4">
+<div style="margin-top: 10;">
+  <a href="logout.php" class='btn btn-outline-danger'>logout</a>
+</div>
+
+    </div>
+  </div>
   <nav class="navbar navbar-dark bg-dark">
-  <i class="navbar-brand">
-  <i class="material-icons" style="font-size:20px;">view_list</i>
+  <i class="navbar-brand"><button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
   Data Pegawai
 </i>
-  <form class="form-inline" method="GET">
+<form class="form-inline" method="GET">
     <input class="form-control mr-sm-2" type="search" placeholder="cari nama..." aria-label="Search" name="search">
     <button class="btn btn-outline-light" type="submit"><i>Cari</i></button>
 </form>
-</nav>
+  </nav>
+</div>
 <table class="table">
     <thead class="thead-dark">
     <tr>
