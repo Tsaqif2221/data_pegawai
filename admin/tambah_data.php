@@ -1,10 +1,10 @@
 <?php
+error_reporting(E_ALL & ~E_NOTICE);
 session_start();
 if (!isset($_SESSION['level'])) {
-  header('location: index.php');
+  header('location: ../index.php');
   exit;
 }
-
 ?>
 
 
@@ -71,7 +71,7 @@ if (!isset($_SESSION['level'])) {
   </div>
   <center>
     <?php
-    include('config.php');
+    include('../config.php');
     if (isset($_POST['tambah'])) {
       $_nama = $_POST['nama'];
       $_jabatan = $_POST['jabatan'];

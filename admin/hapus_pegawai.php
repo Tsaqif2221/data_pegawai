@@ -1,3 +1,12 @@
+<?php
+error_reporting(E_ALL & ~E_NOTICE);
+session_start();
+if (!isset($_SESSION['level'])) {
+    header('location: ../index.php');
+    exit;
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -13,7 +22,7 @@
 <body style="margin-top: 100px;">
     <center>
         <?php
-        include('config.php');
+        include('../config.php');
         $id = $_GET['id'];
 
 

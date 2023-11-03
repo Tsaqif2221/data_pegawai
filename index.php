@@ -1,3 +1,31 @@
+<?php
+include("config.php");
+session_start();
+
+if (isset($_POST['login'])) {
+  $username = $_POST['username'];
+  $password = $_POST['password'];
+  $sql = "SELECT * FROM user WHERE username='$username' AND password='$password'";
+  $query = mysqli_query($konek, $sql) or die("SQL Erorr, $sql");
+
+  $data = mysqli_num_rows($query);
+  if ($data > 0) {
+    $data = mysqli_fetch_array($query);
+    $level = $data["level"];
+
+    if ($level == 'admin') {
+      $_SESSION['level'] = 'admin';
+      header('location: admin/tampil_data.php');
+    } else {
+      $_SESSION['level'] = 'user';
+      header('location: user/data_pegawai.php');
+    }
+  } else {
+    header('location: index.php');
+  }
+}
+?>
+
 <html>
 
 <head>
@@ -23,7 +51,7 @@
       </button>
     </nav>
   </div>
-  <form method="post" action="proses.php" autocomplete="off">
+  <form method="post" autocomplete="off">
     <div style="max-width: max-content;margin: auto;">
       <form class="row row-cols-lg-auto g-3 align-items-center" action="" method="post">
         <div class="col-12" style="margin-top: 70px;">

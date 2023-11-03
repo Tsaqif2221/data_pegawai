@@ -1,3 +1,14 @@
+<?php
+error_reporting(E_ALL & ~E_NOTICE);
+session_start();
+if (!isset($_SESSION['level'])) {
+  header('location: ../index.php');
+  exit;
+}
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,61 +18,51 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
     integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
-  <title>Edit Data</title>
+  <title>Register login</title>
 </head>
 
 <body>
-
   <nav class="navbar navbar-dark bg-dark">
     <i class="navbar-brand">
-      <i class="material-icons" style="font-size:20px;">edit</i>
-      Edit Data
+      <i class="material-icons" style="font-size:20px;">add</i>
+      Register login
     </i>
     <span class="align-text-bottom"><a style="color: white;">| </a><a class='btn btn-outline-light'
-        href="tampil_data.php">Data pegawai</a><a style="color: white;"> |</a></span>
+        href="data_user.php">Data User</a><a style="color: white;"> |</a></span>
   </nav>
 
   <div style="max-width: max-content;margin: auto;">
-    <?php
-    include('config.php');
-    $id = $_GET['id'];
-    $cari = "SELECT * FROM pegawai WHERE id=$id";
-    $hasil = mysqli_query($konek, $cari);
-
-    $data = mysqli_fetch_array($hasil);
-
-    $id = $data['id'];
-    $_nama = $data['nama'];
-    $_jabatan = $data['jabatan'];
-    $_alamat = $data['alamat'];
-    ?>
     <form class="row row-cols-lg-auto g-3 align-items-center" action="" method="post" autocomplete="off">
-      <input type="hidden" value="<?php echo $id; ?>" name="id">
       <div class="col-12" style="margin-top: 70px;">
         <div class="input-group">
           <div class="input-group-text"><i class="material-icons" style='color: black;'>person</i></div>
-          <input type="text" class="form-control" name="nama" placeholder="Nama" value="<?php echo $_nama; ?>">
+          <input type="text" class="form-control" name="username" placeholder="username">
         </div>
       </div>
+
+
+      <div class="col-12" style="margin-top: 20px;">
+        <div class="input-group">
+          <div class="input-group-text"><i class="material-icons" style='color: black;'>lock</i></div>
+          <input type="text" class="form-control" name="password" placeholder="password">
+        </div>
+      </div>
+
 
       <div class="col-12" style="margin-top: 20px;">
         <div class="input-group">
           <div class="input-group-text"><i class="material-icons" style='color: black;'>engineering</i></div>
-          <input type="text" class="form-control" name="jabatan" placeholder="Jabatan" value="<?php echo $_jabatan; ?>">
-        </div>
-      </div>
-
-
-      <div class="col-12" style="margin-top: 20px;">
-        <div class="input-group">
-          <div class="input-group-text"><i class="material-icons" style='color: black;'>domain</i></div>
-          <input type="text" class="form-control" name="alamat" placeholder="Alamat" value="<?php echo $_alamat; ?>">
+          <select class="form-control" name="level">
+            <option disabled selected value>pilih level</option>
+            <option>admin</option>
+            <option>user</option>
+          </select>
         </div>
       </div>
 
       <div class="col-12" style="margin-top: 20px;">
         <a>| </a>
-        <input type="submit" value="Update Data" name="update" class='btn btn-outline-dark'>
+        <input type="submit" value="Tambah Data" name="tambah" class='btn btn-outline-dark'>
         <a> | </a>
         <input type="reset" value="Reset" class='btn btn-outline-danger'>
         <a> |</a>
@@ -70,28 +71,38 @@
   </div>
   <center>
     <?php
-    include('config.php');
-    if (isset($_POST['update'])) {
-      $id = $_POST['id'];
-      $_nama = $_POST['nama'];
-      $_jabatan = $_POST['jabatan'];
-      $_alamat = $_POST['alamat'];
-      $sql = "UPDATE pegawai SET nama='$_nama', jabatan='$_jabatan', alamat='$_alamat' WHERE id=$id";
-      $update = mysqli_query($konek, $sql);
-
-      if ($update) {
+    include('../config.php');
+    if (isset($_POST['tambah'])) {
+      $_username = $_POST['username'];
+      $_password = $_POST['password'];
+      $_level = $_POST['level'];
+      $cek = "SELECT * FROM user  WHERE username='$_username'";
+      $hasil = mysqli_query($konek, $cek);
+      $ada = mysqli_num_rows($hasil);
+      if ($ada > 0) {
         echo "
+                  <i class='material-icons' style='font-size:70px; color: red;'>dangerous</i>
+                  <br>
+                  data sudah ada, silahkan ganti data lain";
+      } else {
+        $sql = "INSERT INTO user VALUES('', '$_username', '$_password', '$_level')";
+        $simpan = mysqli_query($konek, $sql);
+
+        if ($simpan) {
+          echo "
                     <i class='material-icons' style='font-size:70px; color: green;'>check</i>
                     <br>
-                    edit data berhasil
+                    tambah data berhasil
                     <div style='margin-top: 60px'>
                     <a>| </a><a class='btn btn-outline-dark' href='tampil_data.php'>Tampilkan data</a><a> |</a>
-                    </div>";
-      } else {
-        echo "
+                    </div>
+                    ";
+        } else {
+          echo "
                     <i class='material-icons' style='font-size:70px; color: red;'>dangerous</i>
                     <br>
                     tambah data tidak berhasil";
+        }
       }
     }
     ?>

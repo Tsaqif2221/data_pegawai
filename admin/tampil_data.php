@@ -1,13 +1,14 @@
 <?php
+error_reporting(E_ALL & ~E_NOTICE);
 session_start();
 if (!isset($_SESSION['level'])) {
-  header('location: index.php');
+  header('location: ../index.php');
   exit;
 }
 ?>
 
 <?php
-include('config.php');
+include('../config.php');
 
 $no = 1;
 
@@ -38,10 +39,9 @@ $hasil = mysqli_query($konek, $tampil);
   <div class="pos-f-t">
     <div class="collapse" id="navbarToggleExternalContent">
       <div class="bg-dark p-4">
-        <div style="margin-top: 10;">
-          <a href="logout.php" class='btn btn-outline-danger'>logout</a>
+        <div style="margin-bottom: 10;">
+          <a href="../logout.php" class='btn btn-outline-danger'>logout</a>
         </div>
-
       </div>
     </div>
     <nav class="navbar navbar-dark bg-dark">
@@ -65,7 +65,9 @@ $hasil = mysqli_query($konek, $tampil);
         <th scope="col">Nama</th>
         <th scope="col">Jabatan</th>
         <th scope="col">Alamat</th>
-        <th scope="col">| <a class="btn btn-outline-light" href="tambah_data.php">Tambah Data</a> |</th>
+        <th scope="col">| <a class="btn btn-outline-light" href="tambah_data.php">Tambah Data</a> | <a
+            href="data_user.php" class='btn btn-outline-light'>Data User</a> |</th>
+        <th scope="col"></th>
       </tr>
     </thead>
     <?php
