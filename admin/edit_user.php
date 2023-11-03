@@ -50,7 +50,7 @@ if (!isset($_SESSION['level'])) {
                 <div class="input-group">
                     <div class="input-group-text"><i class="material-icons" style='color: black;'>person</i></div>
                     <input type="text" class="form-control" name="username" placeholder="Username"
-                        value="<?php echo $_username; ?>">
+                        value="<?php echo $_username; ?>" required>
                 </div>
             </div>
 
@@ -58,7 +58,7 @@ if (!isset($_SESSION['level'])) {
                 <div class="input-group">
                     <div class="input-group-text"><i class="material-icons" style='color: black;'>lock</i></div>
                     <input type="text" class="form-control" name="password" placeholder="Password"
-                        value="<?php echo $_password; ?>">
+                        value="<?php echo $_password; ?>" required>
                 </div>
             </div>
 
@@ -66,7 +66,7 @@ if (!isset($_SESSION['level'])) {
             <div class="col-12" style="margin-top: 20px;">
                 <div class="input-group">
                     <div class="input-group-text"><i class="material-icons" style='color: black;'>engineering</i></div>
-                    <select class="form-control" name="level" value="<?php echo $_password; ?>">
+                    <select class="form-control" name="level" value="<?php echo $_password; ?>" required>
                         <option disabled selected value>pilih level</option>
                         <option>admin</option>
                         <option>user</option>

@@ -49,14 +49,20 @@ if (!isset($_SESSION['level'])) {
       <div class="col-12" style="margin-top: 70px;">
         <div class="input-group">
           <div class="input-group-text"><i class="material-icons" style='color: black;'>person</i></div>
-          <input type="text" class="form-control" name="nama" placeholder="Nama" value="<?php echo $_nama; ?>">
+          <input type="text" class="form-control" name="nama" placeholder="Nama" value="<?php echo $_nama; ?>" required>
         </div>
       </div>
 
       <div class="col-12" style="margin-top: 20px;">
         <div class="input-group">
           <div class="input-group-text"><i class="material-icons" style='color: black;'>engineering</i></div>
-          <input type="text" class="form-control" name="jabatan" placeholder="Jabatan" value="<?php echo $_jabatan; ?>">
+          <select class="form-control" name="jabatan" value="<?php echo $_jabatan; ?>" required>
+            <option disabled selected value>jabatan</option>
+            <option>CEO</option>
+            <option>Manajer</option>
+            <option>Engineering</option>
+            <option>Staff</option>
+          </select>
         </div>
       </div>
 
@@ -64,7 +70,7 @@ if (!isset($_SESSION['level'])) {
       <div class="col-12" style="margin-top: 20px;">
         <div class="input-group">
           <div class="input-group-text"><i class="material-icons" style='color: black;'>domain</i></div>
-          <input type="text" class="form-control" name="alamat" placeholder="Alamat" value="<?php echo $_alamat; ?>">
+          <input type="text" class="form-control" name="alamat" placeholder="Alamat" value="<?php echo $_alamat; ?>" required>
         </div>
       </div>
 
