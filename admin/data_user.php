@@ -33,15 +33,15 @@ $hasil = mysqli_query($konek, $tampil);
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
     integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
-  <title>Data Pegawai</title>
+  <title>Data User</title>
 </head>
 
 <body>
   <div class="pos-f-t">
     <div class="collapse" id="navbarToggleExternalContent">
       <div class="bg-dark p-4">
-        <div style="margin-bottom: 10;">
-          <a href="../logout.php" class='btn btn-outline-danger'>logout</a>
+        <div style="margin-bottom: 10; color: red">
+         | <a href="../logout.php" class='btn btn-outline-danger'>logout</a> |
         </div>
       </div>
     </div>
@@ -51,7 +51,7 @@ $hasil = mysqli_query($konek, $tampil);
           aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-        Data Pegawai
+        Data User
       </i>
       <form class="form-inline" method="GET">
         <input class="form-control mr-sm-2" type="search" placeholder="cari nama..." aria-label="Search" name="search">

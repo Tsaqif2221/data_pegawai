@@ -54,7 +54,7 @@ if (isset($_POST['login'])) {
   <form method="post" autocomplete="off">
     <div style="max-width: max-content;margin: auto;">
       <form class="row row-cols-lg-auto g-3 align-items-center" action="" method="post">
-        <div class="col-12" style="margin-top: 70px;">
+        <div class="col-12" style="margin-top: 100px;">
           <div class="input-group">
             <div class="input-group-text"><i class="material-icons" style='color: black;'>person</i></div>
             <input type="text" class="form-control" name="username" placeholder="Username" required>
@@ -68,7 +68,7 @@ if (isset($_POST['login'])) {
         </div>
     </div>
     <center>
-      <button type="submit" name="login" class="btn btn-outline-dark">Sign in</button>
+     | <button type="submit" name="login" class="btn btn-outline-dark">Sign in</button> |
     </center>
   </form>
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"

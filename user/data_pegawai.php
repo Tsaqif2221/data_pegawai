@@ -39,8 +39,8 @@ $hasil = mysqli_query($konek, $tampil);
     <div class="pos-f-t">
         <div class="collapse" id="navbarToggleExternalContent">
             <div class="bg-dark p-4">
-                <div style="margin-bottom: 10;">
-                    <a href="../logout.php" class='btn btn-outline-danger'>logout</a>
+                <div style="margin-bottom: 10; color: red">
+                   | <a href="../logout.php" class='btn btn-outline-danger'>logout</a> |
                 </div>
             </div>
         </div>

@@ -27,7 +27,7 @@ if (!isset($_SESSION['level'])) {
             Edit Data User
         </i>
         <span class="align-text-bottom"><a style="color: white;">| </a><a class='btn btn-outline-light'
-                href="tampil_data.php">Data pegawai</a><a style="color: white;"> |</a></span>
+                href="data_user.php">Data User</a><a style="color: white;"> |</a></span>
     </nav>
 
     <div style="max-width: max-content;margin: auto;">
@@ -65,7 +65,7 @@ if (!isset($_SESSION['level'])) {
 
             <div class="col-12" style="margin-top: 20px;">
                 <div class="input-group">
-                    <div class="input-group-text"><i class="material-icons" style='color: black;'>engineering</i></div>
+                    <div class="input-group-text"><i class="material-icons" style='color: black;'>manage_accounts</i></div>
                     <select class="form-control" name="level" value="<?php echo $_password; ?>" required>
                         <option disabled selected value>pilih level</option>
                         <option>admin</option>

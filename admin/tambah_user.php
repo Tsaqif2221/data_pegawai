@@ -51,7 +51,7 @@ if (!isset($_SESSION['level'])) {
 
       <div class="col-12" style="margin-top: 20px;">
         <div class="input-group">
-          <div class="input-group-text"><i class="material-icons" style='color: black;'>engineering</i></div>
+          <div class="input-group-text"><i class="material-icons" style='color: black;'>manage_accounts</i></div>
           <select class="form-control" name="level" required>
             <option disabled selected value>pilih level</option>
             <option>admin</option>
