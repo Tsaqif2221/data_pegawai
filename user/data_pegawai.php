@@ -55,7 +55,7 @@ $hasil = mysqli_query($konek, $tampil);
             <form class="form-inline" method="GET">
                 <input class="form-control mr-sm-2" type="search" placeholder="cari nama..." aria-label="Search"
                     name="search">
-                <button class="btn btn-outline-light" type="submit"><i>Cari</i></button>
+                <button class="btn btn-outline-light" type="submit"><i class="material-icons">search</i></button>
             </form>
         </nav>
     </div>
