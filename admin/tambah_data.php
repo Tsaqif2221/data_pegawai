@@ -61,6 +61,13 @@ if (!isset($_SESSION['level'])) {
       </div>
 
       <div class="col-12" style="margin-top: 20px;">
+        <div class="input-group">
+          <div class="input-group-text"><i class="material-icons" style='color: black;'>123</i></div>
+          <input type="text" class="form-control" name="id_user" placeholder="Id user" required>
+        </div>
+      </div>
+
+      <div class="col-12" style="margin-top: 20px;">
         <a>| </a>
         <input type="submit" value="Tambah Data" name="tambah" class='btn btn-outline-dark'>
         <a> | </a>
@@ -76,6 +83,7 @@ if (!isset($_SESSION['level'])) {
       $_nama = $_POST['nama'];
       $_jabatan = $_POST['jabatan'];
       $_alamat = $_POST['alamat'];
+      $_id_user = $_POST['id_user'];
       $cek = "SELECT * FROM pegawai  WHERE nama='$_nama'";
       $hasil = mysqli_query($konek, $cek);
       $ada = mysqli_num_rows($hasil);
@@ -85,7 +93,7 @@ if (!isset($_SESSION['level'])) {
                   <br>
                   data sudah ada, silahkan ganti data lain";
       } else {
-        $sql = "INSERT INTO pegawai VALUES('', '$_nama', '$_jabatan', '$_alamat')";
+        $sql = "INSERT INTO pegawai VALUES('', '$_nama', '$_jabatan', '$_alamat','$_id_user')";
         $simpan = mysqli_query($konek, $sql);
 
         if ($simpan) {

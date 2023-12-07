@@ -65,9 +65,8 @@ $hasil = mysqli_query($konek, $tampil);
         <th scope="col">Nama</th>
         <th scope="col">Jabatan</th>
         <th scope="col">Alamat</th>
-        <th scope="col">| <a class="btn btn-outline-light" href="tambah_data.php">Tambah Data</a> | <a
-            href="data_user.php" class='btn btn-outline-light'>Data User</a> |</th>
-        <th scope="col"></th>
+        <th scope="col">| <a class="btn btn-outline-light" href="tambah_data.php">Tambah Data</a> |</th>
+        <th scope="col"> | <a href="data_user.php" class='btn btn-outline-light'>Data User</a> |</th>
       </tr>
     </thead>
     <?php
@@ -77,7 +76,7 @@ $hasil = mysqli_query($konek, $tampil);
       $jabatan = $data['jabatan'];
       $alamat = $data['alamat'];
 
-      echo "<tr><th scope='Row'>$id.</th><th>$nama</th><th>$jabatan</th><th>$alamat</th><th><a class='btn btn-outline-dark' href='edit_pegawai.php?id=$id'>Edit</a> | <a class='btn btn-outline-danger' href='hapus_pegawai.php?id=$id'>Hapus</a></th></tr>";
+      echo "<tr><th scope='Row'>$id.</th><th>$nama</th><th>$jabatan</th><th>$alamat</th><th><a class='btn btn-outline-dark' href='edit_pegawai.php?id=$id'>Edit</a> | <a class='btn btn-outline-danger' href='hapus_pegawai.php?id=$id'>Hapus</a></th><th>| <a class='btn btn-outline-dark' href='detail_data.php?id=$id'>Detail data</a> |</th></tr>";
       $no++;
     }
     ?>
