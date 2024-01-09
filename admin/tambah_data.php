@@ -31,7 +31,7 @@ if (!isset($_SESSION['level'])) {
   </nav>
 
   <div style="max-width: max-content;margin: auto;">
-    <form class="row row-cols-lg-auto g-3 align-items-center" action="" method="post" autocomplete="off">
+    <form class="row row-cols-lg-auto g-3 align-items-center ml-5 mr-5" action="" method="post" autocomplete="off" enctype="multipart/form-data">
       <div class="col-12" style="margin-top: 70px;">
         <div class="input-group">
           <div class="input-group-text"><i class="material-icons" style='color: black;'>person</i></div>
@@ -68,6 +68,13 @@ if (!isset($_SESSION['level'])) {
       </div>
 
       <div class="col-12" style="margin-top: 20px;">
+        <div class="input-group">
+          <div class="input-group-text"><i class="material-icons" style='color: black;'>attach_file</i></div>
+          <input type="file" class="form-control" name="foto" size="20" required>
+        </div>
+      </div>
+
+      <div class="col-12" style="margin-top: 20px;">
         <a>| </a>
         <input type="submit" value="Tambah Data" name="tambah" class='btn btn-outline-dark'>
         <a> | </a>
@@ -79,12 +86,22 @@ if (!isset($_SESSION['level'])) {
   <center>
     <?php
     include('../config.php');
+    include('fungsi_thumb.php');
     if (isset($_POST['tambah'])) {
       $_nama = $_POST['nama'];
       $_jabatan = $_POST['jabatan'];
       $_alamat = $_POST['alamat'];
       $_id_user = $_POST['id_user'];
-      $cek = "SELECT * FROM pegawai  WHERE nama='$_nama'";
+
+      $lokasi_file = $_FILES['foto']['tmp_name'];
+      $nama_file = $_FILES['foto']['name'];
+      $acak = rand(000000,999999);
+      $nama_file_ok = $acak . $nama_file;
+
+      $folder = "../foto/";
+      thumb($nama_file_ok,$folder);
+
+      $cek = "SELECT * FROM pegawai WHERE nama='$_nama'";
       $hasil = mysqli_query($konek, $cek);
       $ada = mysqli_num_rows($hasil);
       if ($ada > 0) {
@@ -93,7 +110,7 @@ if (!isset($_SESSION['level'])) {
                   <br>
                   data sudah ada, silahkan ganti data lain";
       } else {
-        $sql = "INSERT INTO pegawai VALUES('', '$_nama', '$_jabatan', '$_alamat','$_id_user')";
+        $sql = "INSERT INTO pegawai VALUES('', '$_nama', '$_jabatan', '$_alamat', '$_id_user','$nama_file_ok')";
         $simpan = mysqli_query($konek, $sql);
 
         if ($simpan) {

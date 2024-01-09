@@ -68,8 +68,8 @@ if (!isset($_SESSION['level'])) {
                     <div class="input-group-text"><i class="material-icons" style='color: black;'>manage_accounts</i></div>
                     <select class="form-control" name="level" value="<?php echo $_password; ?>" required>
                         <option disabled selected value>pilih level</option>
-                        <option>admin</option>
-                        <option>user</option>
+                        <option value="admin" <?php if ($_level === 'admin') echo 'selected'; ?>>admin</option>
+                        <option value="user" <?php if ($_level === 'user') echo 'selected'; ?>>user</option>
                     </select>
                 </div>
             </div>

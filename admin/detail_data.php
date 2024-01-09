@@ -34,7 +34,7 @@ if (!isset($_SESSION['level'])) {
         <?php
         include('../config.php');
         $id = $_GET['id'];
-        $cari = "SELECT pegawai.id, pegawai.nama, pegawai.jabatan, pegawai.alamat, pegawai.id_user, user.username, user.level FROM pegawai JOIN user ON pegawai.id_user=user.id_user WHERE id=$id";
+        $cari = "SELECT pegawai.id, pegawai.nama, pegawai.jabatan, pegawai.alamat, pegawai.id_user, pegawai.foto, user.username, user.level FROM pegawai JOIN user ON pegawai.id_user=user.id_user WHERE id=$id";
         $hasil = mysqli_query($konek, $cari);
         $ada = mysqli_num_rows($hasil);
         if ($ada > 0) {
@@ -48,6 +48,7 @@ if (!isset($_SESSION['level'])) {
         $_id_user = $data['id_user'];
         $_username = $data['username'];
         $_level = $data['level'];
+        $_foto = $data['foto'];
         ?>
         <table class="table">
     <thead>
@@ -79,6 +80,9 @@ if (!isset($_SESSION['level'])) {
         <th>: <?php echo $_level; ?></th>
     </thead>
         </table>
+        <center>
+        <img src="../foto/<?php echo $_foto;?>" weight="200px" height="200px">
+        </center>
     </div>
     
     <?php

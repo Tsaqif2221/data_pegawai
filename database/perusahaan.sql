@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 11 Nov 2023 pada 04.05
+-- Waktu pembuatan: 09 Jan 2024 pada 08.19
 -- Versi server: 10.4.28-MariaDB
 -- Versi PHP: 8.2.4
 
@@ -31,20 +31,18 @@ CREATE TABLE `pegawai` (
   `id` int(6) NOT NULL,
   `nama` varchar(60) NOT NULL,
   `jabatan` varchar(20) NOT NULL,
-  `alamat` text NOT NULL
+  `alamat` text NOT NULL,
+  `id_user` int(11) NOT NULL,
+  `foto` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data untuk tabel `pegawai`
 --
 
-INSERT INTO `pegawai` (`id`, `nama`, `jabatan`, `alamat`) VALUES
-(1, 'Apip', 'Engineering', 'Slawi'),
-(2, 'Vijay', 'Konsultan', 'Kudaile'),
-(3, 'Casmadi', 'Staff', 'procot'),
-(4, 'Apip', 'Staff', 'Kagok'),
-(5, 'vijay', 'staff', 'kagok'),
-(6, 'Rozan', 'CEO', 'Procot');
+INSERT INTO `pegawai` (`id`, `nama`, `jabatan`, `alamat`, `id_user`, `foto`) VALUES
+(1, 'apip', 'Manajer', 'slawi', 1, '740292_1704783102_617df51fedb69-bangunan-mushola-tersebut-dibuat-dari-limbah-kayu-ulin-di-desa-terawan-kalteng_tvonenews_1265_711.jpg'),
+(2, 'vijay', 'CEO', 'slawi', 2, '810565Screenshot 2023-11-01 134837.png');
 
 -- --------------------------------------------------------
 
@@ -64,9 +62,9 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id_user`, `username`, `password`, `level`) VALUES
-(1, 'admin', 'qwerty', 'admin'),
-(2, 'user', '123', 'user'),
-(3, 'vijay', '321', 'admin'),
+(1, 'apip', 'qwerty', 'admin'),
+(2, 'vijay', '123', 'user'),
+(3, 'casmadi', '321', 'admin'),
 (4, 'sumanto', '123', 'admin');
 
 --
@@ -93,7 +91,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT untuk tabel `pegawai`
 --
 ALTER TABLE `pegawai`
-  MODIFY `id` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT untuk tabel `user`
