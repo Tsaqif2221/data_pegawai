@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 09 Jan 2024 pada 08.19
+-- Waktu pembuatan: 12 Jan 2024 pada 02.38
 -- Versi server: 10.4.28-MariaDB
 -- Versi PHP: 8.2.4
 
@@ -41,8 +41,7 @@ CREATE TABLE `pegawai` (
 --
 
 INSERT INTO `pegawai` (`id`, `nama`, `jabatan`, `alamat`, `id_user`, `foto`) VALUES
-(1, 'apip', 'Manajer', 'slawi', 1, '740292_1704783102_617df51fedb69-bangunan-mushola-tersebut-dibuat-dari-limbah-kayu-ulin-di-desa-terawan-kalteng_tvonenews_1265_711.jpg'),
-(2, 'vijay', 'CEO', 'slawi', 2, '810565Screenshot 2023-11-01 134837.png');
+(1, 'apip', 'Engineering', 'slawi', 1, '880792_1705023362_617df51fedb69-bangunan-mushola-tersebut-dibuat-dari-limbah-kayu-ulin-di-desa-terawan-kalteng_tvonenews_1265_711.jpg');
 
 -- --------------------------------------------------------
 
@@ -91,7 +90,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT untuk tabel `pegawai`
 --
 ALTER TABLE `pegawai`
-  MODIFY `id` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT untuk tabel `user`

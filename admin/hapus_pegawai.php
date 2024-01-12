@@ -21,46 +21,46 @@ if (!isset($_SESSION['level'])) {
 
 <body style="margin-top: 100px;">
     <center>
-    <?php
-include('../config.php');
+        <?php
+        include('../config.php');
 
-$id = $_GET['id'];
+        $id = $_GET['id'];
 
-$sql_select = "SELECT foto FROM pegawai WHERE id='$id'";
-$result_select = mysqli_query($konek, $sql_select);
+        $sql_select = "SELECT foto FROM pegawai WHERE id='$id'";
+        $result_select = mysqli_query($konek, $sql_select);
 
-if ($result_select) {
-    $data_select = mysqli_fetch_assoc($result_select);
-    $foto_to_delete = $data_select['foto'];
+        if ($result_select) {
+            $data_select = mysqli_fetch_assoc($result_select);
+            $foto_to_delete = $data_select['foto'];
 
-    $sql_delete = "DELETE FROM pegawai SET id = id - 1 WHERE id='$id'";
-    $hapus = mysqli_query($konek, $sql_delete);
+            $sql_delete = "DELETE FROM pegawai SET id = id - 1 WHERE id='$id'";
+            $hapus = mysqli_query($konek, $sql_delete);
 
-    if ($hapus) {
-        
-        if (!empty($foto_to_delete) && file_exists("../foto/" . $foto_to_delete)) {
-            unlink("../foto/" . $foto_to_delete);
-        }
+            if ($hapus) {
 
-        echo "
+                if (!empty($foto_to_delete) && file_exists("../foto/" . $foto_to_delete)) {
+                    unlink("../foto/" . $foto_to_delete);
+                }
+
+                echo "
             <i class='material-icons' style='font-size:70px; color: green;'>check</i>
             <br>
             Hapus data berhasil";
-    } else {
-        echo "
+            } else {
+                echo "
             <i class='material-icons' style='font-size:70px; color: red;'>dangerous</i>
             <br>
             Hapus data tidak berhasil";
-    }
-} else {
-    echo "Error dalam mengambil data foto sebelum dihapus.";
-}
+            }
+        } else {
+            echo "Error dalam mengambil data foto sebelum dihapus.";
+        }
 
-?>
-<br>
-<div style="margin-top: 60px">
-    <a>| </a><a class='btn btn-outline-dark' href="tampil_data.php">Kembali</a><a> |</a>
-</div>
+        ?>
+        <br>
+        <div style="margin-top: 60px">
+            <a>| </a><a class='btn btn-outline-dark' href="tampil_data.php">Kembali</a><a> |</a>
+        </div>
 
     </center>
 </body>

@@ -39,53 +39,67 @@ if (!isset($_SESSION['level'])) {
         $ada = mysqli_num_rows($hasil);
         if ($ada > 0) {
 
-        $data = mysqli_fetch_array($hasil);
+            $data = mysqli_fetch_array($hasil);
 
-        $id = $data['id'];
-        $_nama = $data['nama'];
-        $_jabatan = $data['jabatan'];
-        $_alamat = $data['alamat'];
-        $_id_user = $data['id_user'];
-        $_username = $data['username'];
-        $_level = $data['level'];
-        $_foto = $data['foto'];
-        ?>
-        <table class="table">
-    <thead>
-        <th>Id</th>
-        <th>: <?php echo $id; ?></th>
-    </thead>
-    <thead>
-        <th>Nama</th>
-        <th>: <?php echo $_nama; ?></th>
-    </thead>
-    <thead>
-        <th>Jabatan</th>
-        <th>: <?php echo $_jabatan; ?></th>
-    </thead>
-    <thead>
-        <th>Alamat</th>
-        <th>: <?php echo $_alamat; ?></th>
-    </thead>
-    <thead>
-        <th>Id user</th>
-        <th>: <?php echo $_id_user; ?></th>
-    </thead>
-    <thead>
-        <th>Username</th>
-        <th>: <?php echo $_username; ?></th>
-    </thead>
-    <thead>
-        <th>Level</th>
-        <th>: <?php echo $_level; ?></th>
-    </thead>
-        </table>
-        <center>
-        <img src="../foto/<?php echo $_foto;?>" weight="200px" height="200px">
-        </center>
-    </div>
-    
-    <?php
+            $id = $data['id'];
+            $_nama = $data['nama'];
+            $_jabatan = $data['jabatan'];
+            $_alamat = $data['alamat'];
+            $_id_user = $data['id_user'];
+            $_username = $data['username'];
+            $_level = $data['level'];
+            $_foto = $data['foto'];
+            ?>
+            <table class="table">
+                <thead>
+                    <th>Id</th>
+                    <th>:
+                        <?php echo $id; ?>
+                    </th>
+                </thead>
+                <thead>
+                    <th>Nama</th>
+                    <th>:
+                        <?php echo $_nama; ?>
+                    </th>
+                </thead>
+                <thead>
+                    <th>Jabatan</th>
+                    <th>:
+                        <?php echo $_jabatan; ?>
+                    </th>
+                </thead>
+                <thead>
+                    <th>Alamat</th>
+                    <th>:
+                        <?php echo $_alamat; ?>
+                    </th>
+                </thead>
+                <thead>
+                    <th>Id user</th>
+                    <th>:
+                        <?php echo $_id_user; ?>
+                    </th>
+                </thead>
+                <thead>
+                    <th>Username</th>
+                    <th>:
+                        <?php echo $_username; ?>
+                    </th>
+                </thead>
+                <thead>
+                    <th>Level</th>
+                    <th>:
+                        <?php echo $_level; ?>
+                    </th>
+                </thead>
+            </table>
+            <center>
+                <img src="../foto/<?php echo $_foto; ?>" weight="200px" height="200px">
+            </center>
+        </div>
+
+        <?php
         } else {
             echo "
             <div style='max-width: max-content;margin: auto;'>
@@ -99,7 +113,7 @@ if (!isset($_SESSION['level'])) {
             </center>
             </div>";
         }
-            ?>
+        ?>
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
         crossorigin="anonymous"></script>

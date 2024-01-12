@@ -69,7 +69,7 @@ if (isset($_POST['login'])) {
         </div>
     </div>
     <center>
-     | <button type="submit" name="login" class="btn btn-outline-dark"><i>Sign in</i></button> |
+      | <button type="submit" name="login" class="btn btn-outline-dark"><i>Sign in</i></button> |
     </center>
   </form>
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"

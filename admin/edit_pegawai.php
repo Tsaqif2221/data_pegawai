@@ -45,7 +45,8 @@ if (!isset($_SESSION['level'])) {
     $_alamat = $data['alamat'];
     $foto = $data['foto'];
     ?>
-    <form class="row row-cols-lg-auto g-3 align-items-center" action="" method="post" autocomplete="off" enctype="multipart/form-data">
+    <form class="row row-cols-lg-auto g-3 align-items-center" action="" method="post" autocomplete="off"
+      enctype="multipart/form-data">
       <input type="hidden" value="<?php echo $id; ?>" name="id">
       <div class="col-12" style="margin-top: 70px;">
         <div class="input-group">
@@ -57,12 +58,16 @@ if (!isset($_SESSION['level'])) {
       <div class="col-12" style="margin-top: 20px;">
         <div class="input-group">
           <div class="input-group-text"><i class="material-icons" style='color: black;'>engineering</i></div>
-          <select class="form-control" name="jabatan"  required>
+          <select class="form-control" name="jabatan" required>
             <option disabled selected value>jabatan</option>
-            <option value="CEO" <?php if ($_jabatan === 'CEO') echo 'selected'; ?>>CEO</option>
-            <option value="Manajer" <?php if ($_jabatan === 'Manajer') echo 'selected'; ?>>Manajer</option>
-            <option value="Engineering" <?php if ($_jabatan === 'Engineering') echo 'selected'; ?>>Engineering</option>
-            <option value="Staff" <?php if ($_jabatan === 'Staff') echo 'selected'; ?>>Staff</option>
+            <option value="CEO" <?php if ($_jabatan === 'CEO')
+              echo 'selected'; ?>>CEO</option>
+            <option value="Manajer" <?php if ($_jabatan === 'Manajer')
+              echo 'selected'; ?>>Manajer</option>
+            <option value="Engineering" <?php if ($_jabatan === 'Engineering')
+              echo 'selected'; ?>>Engineering</option>
+            <option value="Staff" <?php if ($_jabatan === 'Staff')
+              echo 'selected'; ?>>Staff</option>
           </select>
         </div>
       </div>
@@ -71,7 +76,8 @@ if (!isset($_SESSION['level'])) {
       <div class="col-12" style="margin-top: 20px;">
         <div class="input-group">
           <div class="input-group-text"><i class="material-icons" style='color: black;'>domain</i></div>
-          <input type="text" class="form-control" name="alamat" placeholder="Alamat" value="<?php echo $_alamat; ?>" required>
+          <input type="text" class="form-control" name="alamat" placeholder="Alamat" value="<?php echo $_alamat; ?>"
+            required>
         </div>
       </div>
 
@@ -92,24 +98,24 @@ if (!isset($_SESSION['level'])) {
     </form>
   </div>
   <center>
-  <img src="../foto/<?php echo $foto;?>" weight="200px" height="200px">
-  <br>
+    <img src="../foto/<?php echo $foto; ?>" weight="200px" height="200px">
+    <br>
     <?php
     include('../config.php');
     include('fungsi_thumb.php');
 
-if (isset($_POST['update'])) {
-    $id = $_POST['id'];
-    $_nama = $_POST['nama'];
-    $_jabatan = $_POST['jabatan'];
-    $_alamat = $_POST['alamat'];
+    if (isset($_POST['update'])) {
+      $id = $_POST['id'];
+      $_nama = $_POST['nama'];
+      $_jabatan = $_POST['jabatan'];
+      $_alamat = $_POST['alamat'];
 
-    $cari_foto = "SELECT foto FROM pegawai WHERE id=$id";
-    $hasil_foto = mysqli_query($konek, $cari_foto);
-    $data_foto = mysqli_fetch_array($hasil_foto);
-    $foto_lama = $data_foto['foto'];
+      $cari_foto = "SELECT foto FROM pegawai WHERE id=$id";
+      $hasil_foto = mysqli_query($konek, $cari_foto);
+      $data_foto = mysqli_fetch_array($hasil_foto);
+      $foto_lama = $data_foto['foto'];
 
-    if ($_FILES['foto']['error'] == UPLOAD_ERR_OK) {
+      if ($_FILES['foto']['error'] == UPLOAD_ERR_OK) {
         $lokasi_file = $_FILES['foto']['tmp_name'];
         $nama_file = $_FILES['foto']['name'];
 
@@ -120,37 +126,37 @@ if (isset($_POST['update'])) {
 
         if (move_uploaded_file($lokasi_file, $folder . $nama_file_ok)) {
 
-            if (!empty($foto_lama)) {
-                unlink($folder . $foto_lama);
-            }
+          if (!empty($foto_lama)) {
+            unlink($folder . $foto_lama);
+          }
 
-            $sql = "UPDATE pegawai SET nama='$_nama', jabatan='$_jabatan', alamat='$_alamat', foto='$nama_file_ok' WHERE id=$id";
-            $update = mysqli_query($konek, $sql);
+          $sql = "UPDATE pegawai SET nama='$_nama', jabatan='$_jabatan', alamat='$_alamat', foto='$nama_file_ok' WHERE id=$id";
+          $update = mysqli_query($konek, $sql);
 
-            if ($update) {
-                echo "
+          if ($update) {
+            echo "
                     <i class='material-icons' style='font-size:70px; color: green;'>check</i>
                     <br>
                     Edit data berhasil
                     <div style='margin-top: 60px'>
                         <a>| </a><a class='btn btn-outline-dark' href='tampil_data.php'>Tampilkan data</a><a> |</a>
                     </div>";
-            } else {
-                echo "
+          } else {
+            echo "
                     <i class='material-icons' style='font-size:70px; color: red;'>dangerous</i>
                     <br>
                     Update data tidak berhasil";
-            }
+          }
         } else {
-            echo "Unggah file gagal.";
+          echo "Unggah file gagal.";
         }
-    } else {
+      } else {
 
         $sql = "UPDATE pegawai SET nama='$_nama', jabatan='$_jabatan', alamat='$_alamat' WHERE id=$id";
         $update = mysqli_query($konek, $sql);
 
         if ($update) {
-            echo "
+          echo "
                 <i class='material-icons' style='font-size:70px; color: green;'>check</i>
                 <br>
                 Edit data berhasil
@@ -158,14 +164,14 @@ if (isset($_POST['update'])) {
                     <a>| </a><a class='btn btn-outline-dark' href='tampil_data.php'>Tampilkan data</a><a> |</a>
                 </div>";
         } else {
-            echo "
+          echo "
                 <i class='material-icons' style='font-size:70px; color: red;'>dangerous</i>
                 <br>
                 Update data tidak berhasil";
         }
+      }
     }
-}
-?>
+    ?>
 
   </center>
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"

@@ -30,7 +30,7 @@ if (!isset($_SESSION['level'])) {
                 href="data_user.php">Data User</a><a style="color: white;"> |</a></span>
     </nav>
 
-    <div style="max-width: max-content;margin: auto;">
+    <div style="max-width: max-content; margin: auto;">
         <?php
         include('../config.php');
         $id = $_GET['id_user'];
@@ -65,11 +65,14 @@ if (!isset($_SESSION['level'])) {
 
             <div class="col-12" style="margin-top: 20px;">
                 <div class="input-group">
-                    <div class="input-group-text"><i class="material-icons" style='color: black;'>manage_accounts</i></div>
+                    <div class="input-group-text"><i class="material-icons" style='color: black;'>manage_accounts</i>
+                    </div>
                     <select class="form-control" name="level" value="<?php echo $_password; ?>" required>
                         <option disabled selected value>pilih level</option>
-                        <option value="admin" <?php if ($_level === 'admin') echo 'selected'; ?>>admin</option>
-                        <option value="user" <?php if ($_level === 'user') echo 'selected'; ?>>user</option>
+                        <option value="admin" <?php if ($_level === 'admin')
+                            echo 'selected'; ?>>admin</option>
+                        <option value="user" <?php if ($_level === 'user')
+                            echo 'selected'; ?>>user</option>
                     </select>
                 </div>
             </div>

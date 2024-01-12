@@ -31,7 +31,8 @@ if (!isset($_SESSION['level'])) {
   </nav>
 
   <div style="max-width: max-content;margin: auto;">
-    <form class="row row-cols-lg-auto g-3 align-items-center ml-5 mr-5" action="" method="post" autocomplete="off" enctype="multipart/form-data">
+    <form class="row row-cols-lg-auto g-3 align-items-center ml-5 mr-5" action="" method="post" autocomplete="off"
+      enctype="multipart/form-data">
       <div class="col-12" style="margin-top: 70px;">
         <div class="input-group">
           <div class="input-group-text"><i class="material-icons" style='color: black;'>person</i></div>
@@ -95,11 +96,11 @@ if (!isset($_SESSION['level'])) {
 
       $lokasi_file = $_FILES['foto']['tmp_name'];
       $nama_file = $_FILES['foto']['name'];
-      $acak = rand(000000,999999);
+      $acak = rand(000000, 999999);
       $nama_file_ok = $acak . $nama_file;
 
       $folder = "../foto/";
-      thumb($nama_file_ok,$folder);
+      thumb($nama_file_ok, $folder);
 
       $cek = "SELECT * FROM pegawai WHERE nama='$_nama'";
       $hasil = mysqli_query($konek, $cek);

@@ -40,7 +40,7 @@ $hasil = mysqli_query($konek, $tampil);
     <div class="collapse" id="navbarToggleExternalContent">
       <div class="bg-dark p-4">
         <div style="margin-bottom: 10; color: red;">
-         | <a href="../logout.php" class='btn btn-outline-danger'><i>logout</i></a> |
+          | <a href="../logout.php" class='btn btn-outline-danger'><i>logout</i></a> |
         </div>
       </div>
     </div>
